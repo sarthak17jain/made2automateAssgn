@@ -21,13 +21,12 @@ mongoose.set('strictQuery', true);
 mongoose.connect(db_link)
 .then(function(db){
     // console.log(db);
+    app.listen(PORT, () => console.log(`Server is running successfully on PORT ${PORT}`));
+    DefaultData();
     console.log('db connected');
 })
 .catch(function(err){
     console.log(err);
 });
-
-app.listen(PORT, () => console.log(`Server is running successfully on PORT ${PORT}`));
-DefaultData();
 
 app.use('/productData', productRouter);

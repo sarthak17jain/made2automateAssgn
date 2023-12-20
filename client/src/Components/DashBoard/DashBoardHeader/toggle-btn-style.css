@@ -1,0 +1,57 @@
+/* ajustable properties are above the line space */
+
+.toggle-container {
+  display: block;
+  width: 55%;
+  aspect-ratio: 1;
+  border: 0;
+  padding: 0;
+  position: relative;
+}
+
+/* Set hamburger color here: */
+.hamburger {
+  background-color: white;
+
+  transition: 300ms ease;
+  display: block;
+  position: absolute;
+  width: 100%;
+  border-radius: 8px;
+  height: 15%;
+}
+
+.hamburger{
+  transform-origin: left center;
+}
+
+.toggle-container span:nth-child(1) {
+  top: 0;
+}
+
+.toggle-container span:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.toggle-container span:nth-child(3) {
+  bottom: 0;
+}
+
+.toggle-container--open span:nth-child(1) {
+  top: 0;
+  transform: translateY(-50%) rotate(45deg);
+  width: 141%;
+}
+
+.toggle-container--open span:nth-child(2) {
+  width: 0%;
+  opacity: 0;
+}
+
+.toggle-container--open span:nth-child(3) {
+  bottom: 0;  
+  transform: translateY(50%) rotate(-45deg);
+  width: 141%;
+}
+

@@ -1,0 +1,29 @@
+import express from 'express';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+import cors from 'cors';
+import DefaultData from './default.js';
+import productRouter from './routes/productRouter.js';
+
+dotenv.config();
+const app = express();
+console.log()
+const PORT = process.env.PORT || 8000;
+const db_link = process.env.DB_LINK;
+app.use(cors({origin: process.env.CLIENT_URL}));
+
+mongoose.set('strictQuery', true);
+
+mongoose.connect(db_link)
+.then(function(db){
+    // console.log(db);
+    console.log('db connected');
+})
+.catch(function(err){
+    console.log(err);
+});
+
+app.listen(PORT, () => console.log(`Server is running successfully on PORT ${PORT}`));
+DefaultData();
+
+app.use('/productData', productRouter);

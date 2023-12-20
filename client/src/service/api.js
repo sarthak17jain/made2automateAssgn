@@ -6,7 +6,7 @@ const url = process.env.REACT_APP_SERVER_BASE_URL;
 export const getProducts = async () => {
     try {
         console.log("client getProducts called");
-        console.log(url);
+        // console.log(url);
         return await axios.get(`${url}/productData/allproducts`);
     } catch (error) {
         console.log('Error while getting products', error);

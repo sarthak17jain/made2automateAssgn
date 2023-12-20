@@ -2,15 +2,7 @@ import mongoose from 'mongoose';
 // import autoIncrement from 'mongoose-auto-increment';
 
 const productSchema = new mongoose.Schema({
-    productImage: Object,
-    imageURL: String,
-    ProductName: String,
-    ProductId: String,
-    ManufacturerName: String,
-    ProductDescription: String,
-    ProductQuantity: String,
-    PriceperPiece: String,
-    Category: String
+    detailsOfProducts: Object,
 });
 
 // autoIncrement.initialize(mongoose.connection);

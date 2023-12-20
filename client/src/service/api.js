@@ -12,13 +12,14 @@ export const getProducts = async () => {
     }
 }
 
-export const modifyProduct = async (productId)=>{
+export const modifyProduct = async (obj)=>{
     try{
         console.log("client modifyProduct called");
-        let response = await axios.post(`${url}/cart/getcart`, {productId: productId});
+        console.log(obj);
+        let response = await axios.post(`${url}/productData/modify`, obj);
         console.log(response.data);
     }catch (error) {
         console.log('error', error);
-        throw new Error(error);
+        // throw new Error(error);
     }
 }

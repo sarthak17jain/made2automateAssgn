@@ -11,6 +11,7 @@ import Header from './Header';
 import { ProductContext } from '../ProductsContextProvider';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { modifyProduct } from '../service/api';
 
 const detailInitialValues = {
     productImage: null,
@@ -66,8 +67,9 @@ function AddProduct() {
         if(details.ProductId){
             setProducts({
                 ...products,
-                [toString(details.ProductId)] : details
+                [details.ProductId] : details
             });
+            modifyProduct({productId: details.ProductId, productDetails: details});
             navigate('/addedProduct', { state: { productDetails: details } });
         }else{
             toast.error("Please fill all inputs!", {
